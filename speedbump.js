@@ -7,11 +7,13 @@
             // DO NOT INCLUDE THE FOLLOWING MATCHES: EMAIL LINKS, TELEPHONE LINKS, HOSTNAME
             return !a.href.match(/^mailto\:/) && !a.href.match(/^tel\:/) && a.hostname != location.hostname && !a.href.match(/^#\:/) && a.href !== undefined && a.href !== '' && a.href !== null
         };
+
         $('a:external').click(function(e){
             e.preventDefault();
             href = $(this).attr('href');
             $('#speedbump').modal('show')
         });
+
         openLink = function () {
             $('#speedbump').modal('hide')
             window.open(href);
